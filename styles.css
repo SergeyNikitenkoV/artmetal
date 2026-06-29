@@ -224,8 +224,33 @@ h2 {
 
 .products {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 20px;
+}
+
+.quality-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.quality-grid article {
+  min-height: 190px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.quality-grid h3 {
+  margin-bottom: 12px;
+  font-size: 23px;
+}
+
+.quality-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .product-card {
@@ -242,6 +267,59 @@ h2 {
   object-position: center;
   background: #fff;
   padding: 10px;
+}
+
+.medal-preview {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  background: #fff;
+}
+
+.medal-preview img {
+  width: 100%;
+}
+
+.medal-ribbon {
+  position: absolute;
+  top: 68%;
+  width: 18px;
+  height: 26%;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(90deg, #174a9c 0 32%, #e23d62 32% 68%, #1d70b8 68% 100%);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.24);
+}
+
+.medal-ribbon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  width: 30px;
+  height: 30px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 3px solid #b97827;
+  background: radial-gradient(circle at 35% 30%, #fff1b8, #d89b31 48%, #8f5a1c 100%);
+}
+
+.medal-one {
+  left: 18%;
+}
+
+.medal-two {
+  left: 35%;
+  top: 67%;
+}
+
+.medal-three {
+  left: 60%;
+}
+
+.medal-four {
+  left: 78%;
+  top: 66%;
 }
 
 .product-card img.full-photo {
@@ -296,6 +374,19 @@ h2 {
   padding: 10px;
 }
 
+.gallery-grid .medal-preview {
+  height: 360px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.gallery-grid .medal-preview img {
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 10px;
+}
+
 .gallery-grid img.full-photo {
   object-fit: contain;
   padding: 10px;
@@ -319,6 +410,16 @@ h2 {
   height: 280px;
   object-fit: contain;
   background: #fff;
+  padding: 10px;
+}
+
+.ready-card img.rotate-photo {
+  transform: rotate(270deg) scale(0.74);
+}
+
+.ready-card .medal-preview img {
+  height: 280px;
+  object-fit: contain;
   padding: 10px;
 }
 
@@ -462,6 +563,7 @@ textarea {
 
   .quick-strip,
   .products,
+  .quality-grid,
   .gallery-grid,
   .ready-grid,
   .steps,
@@ -590,9 +692,21 @@ textarea {
     background: #fff;
   }
 
+  .gallery-grid .medal-preview {
+    height: auto;
+  }
+
+  .gallery-grid .medal-preview img {
+    height: auto;
+  }
+
   .ready-card img {
     height: auto;
     max-height: none;
+  }
+
+  .ready-card .medal-preview img {
+    height: auto;
   }
 
   .product-body h3 {
