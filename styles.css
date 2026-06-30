@@ -36,6 +36,10 @@ img {
   max-width: 100%;
 }
 
+body.lightbox-open {
+  overflow: hidden;
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -553,6 +557,49 @@ textarea {
   padding: 28px clamp(18px, 4vw, 56px);
   color: rgba(255, 255, 255, 0.76);
   background: var(--ink);
+}
+
+.zoomable-image {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 22px;
+  background: rgba(8, 8, 7, 0.9);
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox img {
+  width: auto;
+  max-width: 96vw;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.36);
+  font-size: 34px;
+  line-height: 1;
+  cursor: pointer;
 }
 
 @media (max-width: 920px) {
